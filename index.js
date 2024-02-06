@@ -39,3 +39,44 @@ console.log(calculateStudentList([
     },
 ]));
 
+// Create a program to create transaction
+
+class Product {
+    constructor(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+}
+
+class Transaction {
+    constructor() {
+        this.total = 0;
+        this.products = [];
+    }
+
+    addToCart(product, qty) {
+        this.products.push({
+            product,
+            qty,
+        });
+        
+        this.total += product.price * qty;
+    }
+
+    showTotal() {
+        console.log(this.total);
+    }
+}
+
+
+const ayamGoreng = new Product("Ayam Goreng", 5000);
+const nasi = new Product("Nasi", 2000);
+const esTeh = new Product("Es Teh", 2000);
+
+const transaction1 = new Transaction();
+
+transaction1.addToCart(ayamGoreng, 4);
+transaction1.addToCart(nasi, 2);
+transaction1.addToCart(esTeh, 2);
+
+transaction1.showTotal();
